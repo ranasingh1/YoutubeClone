@@ -1,8 +1,8 @@
  import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleMenu } from "../utils/appSlice";
+import { closeMenu, openMenu, toggleMenu } from "../utils/appSlice";
 import { Link } from "react-router-dom";
-import { SEARCH_ICON, YOUTUBE_SUGGESTION_API } from "../constants/constants";
+import { SEARCH_ICON, YOUTUBE_ICON, YOUTUBE_LOGO, YOUTUBE_SUGGESTION_API } from "../constants/constants";
 import { cacheResults } from "../utils/searchSlice";
 
 const Head = () => {
@@ -11,6 +11,8 @@ const Head = () => {
   const [suggestion, setSuggestion] =useState([]);
   const [showSuggestion, setShowSuggestion] = useState(false);
   const searchCache = useSelector((store)=>store.search)
+  const dispatch = useDispatch();
+
   useEffect(()=>{
     const timer = setTimeout(() => {
       if(searchCache[searchQuery]){
@@ -24,6 +26,7 @@ const Head = () => {
       clearTimeout(timer);
     }
   }, [searchQuery])
+  
 
   const getSuggestion =async()=>{
       console.log('api');
@@ -35,28 +38,27 @@ const Head = () => {
       [searchQuery]:json[1]
     }))
   }
-    const dispatch = useDispatch();
 
+    
    const toggleMenuHanlder = ()=>{
       dispatch(toggleMenu());
    }
   return (
-    <div className="grid  grid-flow-col p-4 my-2 shadow-lg">
+    <div className="grid  grid-flow-col p-4 my-2 ">
       <div className="flex col-span-1 ">
-        {/* <a href="/"> */}
        <img
          onClick={()=>toggleMenuHanlder()}
           alt="menu"
-          className="h-8 cursor-pointer"
+          className="h-7 it cursor-pointer "
           src="https://cdn.iconscout.com/icon/free/png-256/free-hamburger-menu-462145.png?f=webp"
         />
-        {/* </a> */}
+        <a href="/">
         <img
           alt="logo"
           className="h-8 w-20 ml-4"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/2560px-Logo_of_YouTube_%282015-2017%29.svg.png"
+          src={YOUTUBE_LOGO}
         />
-        
+        </a>        
       </div>
       <div className="col-span-10 relative pl-20">
         <input

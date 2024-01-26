@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { closeMenu, toggleMenu } from '../utils/appSlice';
+import { closeMenu, openMenu, toggleMenu } from '../utils/appSlice';
 import { useParams, useSearchParams } from 'react-router-dom';
 import CommentsContainer from './ComentsContainer';
 import { commentData } from '../constants/constants';
@@ -15,9 +15,26 @@ const WatchPage = () => {
        dispatch(closeMenu())     
        
        return ()=>{
-        dispatch(toggleMenu());
+        dispatch(openMenu());
        }
   }, [])
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.innerWidth <= 768; 
+      if(isMobile){
+        dispatch(closeMenu());
+      }
+    };
+  
+    window.addEventListener('resize', handleResize);
+    handleResize(); 
+  
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+ 
   return (<div className=' flex-col w-full'>
     <div className='flex w-full'>
     <div className='px-5  '>

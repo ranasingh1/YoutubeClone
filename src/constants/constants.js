@@ -3,6 +3,8 @@ export const YOUTUBE_VIDEO_API = "https://youtube.googleapis.com/youtube/v3/vide
 export const YOUTUBE_SUGGESTION_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
 export const SEARCH_ICON = "https://png.pngtree.com/png-clipart/20190921/original/pngtree-search-icon-png-image_4699282.jpg"
 export const USER_ICON = "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
+export const YOUTUBE_ICON= 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/2560px-Logo_of_YouTube_%282015-2017%29.svg.png'
+export const YOUTUBE_LOGO = "https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg"
 export const commentData = [
     {
         id: 1,
