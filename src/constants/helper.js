@@ -45,3 +45,14 @@ export function generateString(length) {
     return result;
 }
 
+export function generateID(length) {
+    let id = "";
+    // Create a string of all possible characters that can be used in the ID
+    const possibleCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    // Loop through the specified length of the ID and add a random character to the string
+    for (let i = 0; i < length; i++) {
+      id += possibleCharacters.charAt(Math.floor(Math.random() * possibleCharacters.length));
+    }
+    // Return the random ID
+    return id;
+  }

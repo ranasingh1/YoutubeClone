@@ -25,20 +25,20 @@ const ChatBox = () => {
   const messages = useSelector((store) => store.chat.message);
   return (
     <>
-      <div className="w-[28rem]  ml-2 border-2 h-[500px] rounded-lg p-2 bg-slate-100 flex  border-black overflow-hidden overflow-y-scroll flex-col-reverse">
+      <div className="md:w-[28rem]  ml-2 border-2 h-[500px] rounded-lg p-2 bg-slate-100 flex  border-black overflow-hidden overflow-y-scroll flex-col-reverse">
         {messages.map((m, i) => (
           <ChatMessage key={i} message={m} />
         ))}
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className=" w-[28rem] m-2 p-2 border-2 border-black rounded-lg "
+        className=" md:w-[28rem] m-2 p-2 border-2 border-black rounded-lg "
       >
         <input
           type="text"
           value={chatText}
           onChange={(e) => setChatText(e.target.value)}
-          className=" w-80 focus:border-none"
+          className=" max-sm:w-60 md:w-80 focus:border-none"
         />
         <button
           onClick={() => {dispatch(addMessage({ name: "Rana", text: chatText }))
