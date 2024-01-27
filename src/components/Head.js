@@ -1,7 +1,6 @@
  import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { closeMenu, openMenu, toggleMenu } from "../utils/appSlice";
-import { Link } from "react-router-dom";
+import { toggleMenu } from "../utils/appSlice";
 import { SEARCH_ICON, YOUTUBE_ICON, YOUTUBE_LOGO, YOUTUBE_SUGGESTION_API } from "../constants/constants";
 import { cacheResults } from "../utils/searchSlice";
 
@@ -10,6 +9,8 @@ const Head = () => {
   const[searchQuery , setSearchQuery] = useState([]);
   const [suggestion, setSuggestion] =useState([]);
   const [showSuggestion, setShowSuggestion] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
   const searchCache = useSelector((store)=>store.search)
   const dispatch = useDispatch();
 
@@ -26,7 +27,21 @@ const Head = () => {
       clearTimeout(timer);
     }
   }, [searchQuery])
+
+  useEffect(() => {
+    
+    window.addEventListener('resize', handleResize);
+    handleResize(); 
   
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [screenWidth]);
+ 
+  
+  const handleResize = () => {
+    setScreenWidth(window.innerWidth)
+    };
 
   const getSuggestion =async()=>{
       console.log('api');
@@ -44,7 +59,7 @@ const Head = () => {
       dispatch(toggleMenu());
    }
   return (
-    <div className="grid  grid-flow-col p-4 my-2 ">
+    <div className="grid  fixed bg-white w-screen grid-flow-col p-4  ">
       <div className="flex col-span-1 ">
        <img
          onClick={()=>toggleMenuHanlder()}
@@ -55,8 +70,8 @@ const Head = () => {
         <a href="/">
         <img
           alt="logo"
-          className="h-8 w-20 ml-4"
-          src={YOUTUBE_LOGO}
+          className="h-7 w-28 ml-4"
+          src={screenWidth<=640?YOUTUBE_ICON:YOUTUBE_LOGO}
         />
         </a>        
       </div>
