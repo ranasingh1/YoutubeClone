@@ -11,7 +11,7 @@ const WatchPage = () => {
   console.log(videoId);
   const dispatch = useDispatch();
   const [iframeWidth, setIframeWidth] = useState(1000); // Initial width for larger screens
-
+  const [iframelength, setIframelength] = useState(500);
   useEffect(() => {
     dispatch(closeMenu());
 
@@ -24,10 +24,12 @@ const WatchPage = () => {
     const handleResize = () => {
       const isMobile = window.innerWidth <= 768;
       if (isMobile) {
-        setIframeWidth(350); // Set width for smaller screens
+        setIframeWidth(window.innerWidth * 0.9);
+        setIframelength(window.innerHeight*0.6); // Set width for smaller screens
         dispatch(closeMenu());
       } else {
         setIframeWidth(1000); // Set width for larger screens
+        setIframelength(500)
       }
     };
 
@@ -40,12 +42,12 @@ const WatchPage = () => {
   }, [dispatch]);
 
   return (
-    <div className='md:flex-col w-full mt-16'>
+    <div className='md:flex-col w-full md:mt-20 mt-16'>
       <div className='md:flex w-full mt-14'>
-        <div className='px-5'>
+        <div className=' flex justify-center md:px-5'>
           <iframe
             width={iframeWidth}
-            height='500'
+            height={iframelength}
             src={`https://www.youtube.com/embed/${videoId}?`} // Add autoplay parameter
             title='YouTube video player'
             frameBorder='0'
@@ -53,7 +55,7 @@ const WatchPage = () => {
             allowFullScreen
           ></iframe>
         </div>
-        <div className=' md:w-full max-sm:mt-4 md:mt-0'>
+        <div className=' md:w-full max-sm:mt-4 sm:mt-4 md:mt-0'>
           <ChatBox />
         </div>
       </div>

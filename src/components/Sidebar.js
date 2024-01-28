@@ -6,7 +6,7 @@ const Sidebar = () => {
     const isMenuOpen = useSelector(store=>store.app.isMenuOpen);
     if(!isMenuOpen) return null;
     return (
-   <div className='  z-10  mt-16  h-screen bg-white fixed w-[14rem] pl-2  mr-10 text-s '>
+   <div className=' pt-8 top-16 h-[98vh] bg-white fixed w-[14rem] pl-2  mr-10 text-s '>
      <ul >
       <Link to="/">
         <li className='flex gap-4 pr-8 font-bold  hover:bg-gray-100 items-center hover:rounded-lg '><img src='https://static.thenounproject.com/png/3574480-200.png' 

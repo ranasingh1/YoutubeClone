@@ -15,7 +15,7 @@ export const VideoContainer = () => {
     console.log(jsonData);
    }
   return (
-    <div className=" flex flex-wrap justify-center ">
+    <div className=" mt-14 mb-3 flex flex-wrap justify-center ">
    { videos.map((video, index)=>{
       return <Link key={index} to={"/watch?v="+ video.id}><VideoCard   info={video}/></Link>  ;
     }
