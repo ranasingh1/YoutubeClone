@@ -108,7 +108,7 @@ const Head = () => {
         </button>
       </div>
       {showSuggestion && suggestion.length>0 && (
-        <div className="absolute  z-50 max-sm:translate-x-0 sm:translate-x-20 md:translate-x-[21rem] top-[4.1rem] bg-gray-50  py-2 px-2 w-[33rem] rounded-lg">
+        <div className="absolute  z-50 max-sm:w-[100%]  max-md:translate-x-[10rem] md:translate-x-[21rem] top-[4.1rem] bg-gray-50  py-2 px-2 w-[33rem] rounded-lg">
           <ul>
             {suggestion?.map((s, i) => (
               // <Link to = "/results">
