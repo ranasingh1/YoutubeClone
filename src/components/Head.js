@@ -22,7 +22,7 @@ const Head = () => {
 
   useEffect(() => {
     getSearchItem();
-  }, []);
+  }, [NaN]);
 
   const getSearchItem = async () => {
     const response = await fetch(YOUTUBE_SEARCH_LIST_API);
@@ -99,6 +99,12 @@ const Head = () => {
           onFocus={() => setShowSuggestion(true)}
           onBlur={() => setTimeout(()=>setShowSuggestion(false),1000) }
         />
+        
+        <Link   to={"/results?search_query="+searchQuery}   onClick={(e)=>{
+               setSearchQuery(searchQuery);
+                setShowSuggestion(false);
+                    }}>
+
         <button className="absolute h-full  w-20 bg-gray-100 border   border-gray-400 rounded-r-full">
           <img
             alt="search-icon"
@@ -106,9 +112,10 @@ const Head = () => {
             src={SEARCH_ICON}
           />
         </button>
+        </Link>
       </div>
       {showSuggestion && suggestion.length>0 && (
-        <div className="absolute  z-50 max-sm:w-[100%]   md:translate-x-[14rem] lg:translate-x-[21rem] top-[4.1rem] bg-gray-50  py-2 px-2 w-[33rem] rounded-lg">
+        <div className="absolute   z-50 max-sm:w-[100%]   md:translate-x-[14rem] lg:translate-x-[21rem] top-[4.1rem] bg-gray-50  py-2 px-2 w-[33rem] rounded-lg">
           <ul>
             {suggestion?.map((s, i) => (
               // <Link to = "/results">
