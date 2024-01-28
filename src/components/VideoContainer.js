@@ -16,7 +16,6 @@ export const VideoContainer = () => {
       setVideos(jsonData.items);
 
     }
-    console.log(jsonData);
    }
   return (
     <div className=" mt-14 mb-3 flex flex-wrap justify-center ">

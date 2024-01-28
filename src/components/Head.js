@@ -96,8 +96,8 @@ const Head = () => {
           value={searchQuery}
           className="w-1/2 border px-4 py-2 rounded-l-full border-gray-400"
           onChange={(e) => setSearchQuery(e.target.value)}
-          // onFocus={() => setShowSuggestion(true)}
-          // onBlur={() => setTimeout(()=>setShowSuggestion(false),1000) }
+          onFocus={() => setShowSuggestion(true)}
+          onBlur={() => setTimeout(()=>setShowSuggestion(false),1000) }
         />
         <button className="absolute h-full  w-20 bg-gray-100 border   border-gray-400 rounded-r-full">
           <img
@@ -107,10 +107,10 @@ const Head = () => {
           />
         </button>
       </div>
-      {true && (
-        <div className="absolute  max-sm:translate-x-0 sm:translate-x-20 md:translate-x-[21rem] top-[4.1rem] bg-gray-50  py-2 px-2 w-[33rem] rounded-lg">
+      {showSuggestion && suggestion.length>0 && (
+        <div className="absolute  z-50 max-sm:translate-x-0 sm:translate-x-20 md:translate-x-[21rem] top-[4.1rem] bg-gray-50  py-2 px-2 w-[33rem] rounded-lg">
           <ul>
-            {suggestion.map((s, i) => (
+            {suggestion?.map((s, i) => (
               // <Link to = "/results">
               //The onBlur was executed before the Link element, hid the window and therefore nothing happend after clicking on the link. I am now pausing the handleFocusOut function for 100ms so that the link gets executed first and now it works. I know this is not the best solution but it is the only one that worked unitl now. I will search for a better one. Thanks everyone for helping me :)
              <Link key={i}  to={"/results?search_query="+s}   onClick={(e)=>{
