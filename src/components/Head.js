@@ -96,8 +96,8 @@ const Head = () => {
           value={searchQuery}
           className="w-1/2 border px-4 py-2 rounded-l-full border-gray-400"
           onChange={(e) => setSearchQuery(e.target.value)}
-          onFocus={() => setShowSuggestion(true)}
-          onBlur={() => setTimeout(()=>setShowSuggestion(false),1000) }
+          // onFocus={() => setShowSuggestion(true)}
+          // onBlur={() => setTimeout(()=>setShowSuggestion(false),1000) }
         />
         <button className="absolute h-full  w-20 bg-gray-100 border   border-gray-400 rounded-r-full">
           <img
@@ -107,7 +107,7 @@ const Head = () => {
           />
         </button>
       </div>
-      {showSuggestion && (
+      {true && (
         <div className="absolute  max-sm:translate-x-0 sm:translate-x-20 md:translate-x-[21rem] top-[4.1rem] bg-gray-50  py-2 px-2 w-[33rem] rounded-lg">
           <ul>
             {suggestion.map((s, i) => (

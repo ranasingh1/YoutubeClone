@@ -9,17 +9,21 @@ export const VideoContainer = () => {
     getVideos();
    }, [])
    const getVideos = async ()=>{
+
     const data  = await fetch(YOUTUBE_VIDEO_API);
     const jsonData=await data.json();
-    setVideos(jsonData.items);
+    if (jsonData.items && jsonData.items.length > 0) {
+      setVideos(jsonData.items);
+
+    }
     console.log(jsonData);
    }
   return (
     <div className=" mt-14 mb-3 flex flex-wrap justify-center ">
-   { videos.map((video, index)=>{
+   { videos.length>0 ?( videos.map((video, index)=>{
       return <Link key={index} to={"/watch?v="+ video.id}><VideoCard   info={video}/></Link>  ;
     }
-    )}
+    )):( <h1> Daily Request Limit exhausted</h1>)}
     </div>
     
   )
