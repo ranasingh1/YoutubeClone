@@ -8,7 +8,6 @@ import ChatBox from './ChatBox';
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get('v');
-  console.log(videoId);
   const dispatch = useDispatch();
   const [iframeWidth, setIframeWidth] = useState(1000); // Initial width for larger screens
   const [iframelength, setIframelength] = useState(500);
@@ -48,7 +47,7 @@ const WatchPage = () => {
           <iframe
             width={iframeWidth}
             height={iframelength}
-            src={`https://www.youtube.com/embed/${videoId}?`} // Add autoplay parameter
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1`} // Add autoplay parameter
             title='YouTube video player'
             frameBorder='0'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'

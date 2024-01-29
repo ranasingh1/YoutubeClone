@@ -1,11 +1,11 @@
 const API_KEY ='AIzaSyAgCxMKdafjpYkoG5wwc1DHwrAWjp7FDA0' // Replace with your own YouTube Data v3 API key</s>
-export const YOUTUBE_VIDEO_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=AIzaSyCrG3Fs5K6litaPv4NjN7mIjeHQaqSjt-c";
+export const YOUTUBE_VIDEO_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=AIzaSyDYyDjaKZkdhItd6RIlgw69g-2_F1dMlQw";
 export const YOUTUBE_SUGGESTION_API = "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
 export const SEARCH_ICON = "https://png.pngtree.com/png-clipart/20190921/original/pngtree-search-icon-png-image_4699282.jpg"
 export const USER_ICON = "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
 export const YOUTUBE_ICON= 'https://cdn-icons-png.flaticon.com/128/1384/1384060.png'
 export const YOUTUBE_LOGO = "https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg"
-export const YOUTUBE_SEARCH_LIST_API = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=aajtak&key=AIzaSyCrG3Fs5K6litaPv4NjN7mIjeHQaqSjt-c"
+export const YOUTUBE_SEARCH_LIST_API = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=aajtak&key=AIzaSyDYyDjaKZkdhItd6RIlgw69g-2_F1dMlQw"
 
 
 

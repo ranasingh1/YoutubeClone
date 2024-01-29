@@ -22,7 +22,9 @@ export const VideoContainer = () => {
    { videos.length>0 ?( videos.map((video, index)=>{
       return <Link key={index} to={"/watch?v="+ video.id}><VideoCard   info={video}/></Link>  ;
     }
-    )):( <h1> Daily Request Limit exhausted</h1>)}
+    )):( <div><h1> Daily Request Limit exhausted for YouTube Data API</h1>
+              <p>Renews At midnight pacific time</p>
+    </div>)}
     </div>
     
   )

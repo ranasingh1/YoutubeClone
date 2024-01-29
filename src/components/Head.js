@@ -20,9 +20,9 @@ const Head = () => {
   const searchCache = useSelector((store) => store.search);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    getSearchItem();
-  }, [NaN]);
+  // useEffect(() => {
+  //   getSearchItem();
+  // }, []);
 
   const getSearchItem = async () => {
     const response = await fetch(YOUTUBE_SEARCH_LIST_API);
@@ -33,10 +33,8 @@ const Head = () => {
     const timer = setTimeout(() => {
       if (searchCache[searchQuery]) {
         setSuggestion(searchCache[searchQuery]);
-        console.log('you genius');
       } else {
         getSuggestion();
-        console.log('you idiot');
       }
     }, 250);
 
